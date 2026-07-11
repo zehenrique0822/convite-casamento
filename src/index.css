@@ -1,0 +1,91 @@
+/* ===== Fontes Google ===== */
+/* Montserrat (apoio) · Playfair Display (títulos elegantes) · Great Vibes (script) */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Reset / base ===== */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  /* fundo escuro em VERDE OLIVA para destacar o "livreto" centralizado */
+  background: radial-gradient(circle at 50% 30%, #3e4427 0%, #23261a 68%, #161812 100%);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior: none;
+}
+
+/* Evita seleção acidental de texto ao arrastar as páginas */
+.no-select {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ===== Utilidades estéticas ===== */
+.text-shadow-soft {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #C8A96A, transparent);
+}
+
+/* Inputs do formulário de RSVP */
+.input {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(43, 43, 43, 0.15);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0.625rem 0.875rem;
+  font-size: 0.95rem;
+  color: #2b2b2b;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.input:focus {
+  border-color: #c8a96a;
+  box-shadow: 0 0 0 3px rgba(200, 169, 106, 0.18);
+}
+.input::placeholder {
+  color: rgba(43, 43, 43, 0.35);
+}
+
+/* Glassmorphism reutilizável */
+.glass {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Sombra interna sutil das páginas do livro (efeito de papel) */
+.page-shadow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.25);
+}
+
+/* react-pageflip: garante que a sombra/curl fique suave */
+.stf__parent {
+  margin: 0 auto;
+}
+
+/* Esconde a scrollbar dos modais/bottom sheets mantendo o scroll */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
