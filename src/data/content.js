@@ -39,7 +39,7 @@ export const minimal = {
       '“Assim, eles já não são dois, mas sim uma só carne. Portanto, o que Deus uniu, ninguém o separe.”',
     ref: 'Mateus 19:6',
   },
-  intro: 'Com a benção de Deus e de seus pais,\nconvidam para a cerimônia e recepção\nde seu casamento',
+  intro: 'Com a benção de Deus e de nossos pais,\nconvidamos você para a cerimônia \ndo nosso casamento',
   when: {
     month: 'OUTUBRO',
     weekday: 'SÁBADO',
