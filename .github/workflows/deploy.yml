@@ -1,5 +1,9 @@
 # Builda o convite e publica no GitHub Pages a cada push na main.
-# Pré-requisito (uma vez só): no GitHub, Settings -> Pages -> Source: "GitHub Actions".
+#
+# Pré-requisito: o repositório precisa ser PÚBLICO (no plano gratuito o Pages
+# não funciona em repositório privado — o erro aparece como "Get Pages site
+# failed / Not Found" no passo configure-pages). Com GitHub Pro dá para manter
+# privado. O Pages em si é habilitado sozinho pelo `enablement: true` abaixo.
 name: Deploy no GitHub Pages
 
 on:
@@ -29,13 +33,18 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
 
+      # `enablement: true`: liga o Pages sozinho na 1ª execução, dispensando o
+      # passo manual em Settings -> Pages. Só funciona se o repo for público
+      # (ou a conta for Pro) — caso contrário falha com "Not Found".
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
