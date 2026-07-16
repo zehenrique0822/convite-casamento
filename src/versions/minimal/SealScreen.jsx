@@ -41,7 +41,7 @@ export default function SealScreen({ onOpen }) {
             transition={{ duration: 1.1, ease: [0.65, 0, 0.35, 1], delay: 0.25 }}
           >
             <div className="absolute inset-y-0 right-0 w-px bg-black/15" />
-            <p className="absolute left-6 top-10 font-script text-lg italic text-cream/85">
+            <p className="absolute left-6 top-10 font-script text-xl font-medium italic text-cream/85">
               {couple.names}
             </p>
           </motion.div>
@@ -78,14 +78,14 @@ export default function SealScreen({ onOpen }) {
               }
               whileTap={{ scale: 0.92 }}
             >
-              <span className="font-script text-3xl italic text-olive-deep/85">
+              <span className="font-script text-3xl font-semibold italic text-olive-deep/85">
                 {minimal.monogram}
               </span>
               <span className="pointer-events-none absolute inset-1.5 rounded-full border border-cream/25" />
             </motion.button>
 
             <motion.p
-              className="whitespace-pre-line text-center font-script text-base italic leading-relaxed text-cream/80"
+              className="whitespace-pre-line text-center font-script text-lg font-medium italic leading-relaxed text-cream/80"
               animate={{ opacity: opening ? 0 : [0.55, 1, 0.55] }}
               transition={
                 opening ? { duration: 0.3 } : { duration: 2.6, repeat: Infinity }

@@ -1,16 +1,34 @@
-# Backup das fontes (antes de unificar tudo em Playfair Display)
+# Backup das fontes
 
-Em **17/06/2026** todas as fontes do convite foram unificadas para
-**Playfair Display** (a mesma fonte do versículo / `font-serif`).
+## Situação atual: **Cormorant Garamond** (fonte única)
 
-Este arquivo guarda **quais eram as fontes originais** e **onde eram usadas**,
-para o caso de você querer voltar.
+Em **16/07/2026** a fonte única passou de Playfair Display para
+**Cormorant Garamond**. Motivo: o **"J" itálico da Playfair é um swash** (𝒥),
+que era lido como **"F"** — aparecia no monograma "K&J" e em "João Gabriel".
+
+Todas as candidatas testadas (Cormorant Garamond, EB Garamond, Lora, Crimson,
+Spectral, Bodoni Moda, Libre Baskerville, Gelasio, Marcellus) desenham um "J"
+normal; só a Playfair tem esse swash. A Cormorant foi escolhida por manter o
+mesmo estilo (serifada elegante, itálico refinado, clássica de casamento).
+
+> **Atenção ao mexer no tamanho dos textos:** a Cormorant é mais leve e tem
+> altura-x menor que a Playfair. Por isso os textos pequenos levam um grau a
+> mais de peso (`font-medium` / `font-semibold`) e ~1-2px a mais de tamanho.
+> Sem isso, rótulos como "SÁBADO" e "ÀS 19:00" ficam finos demais no celular.
 
 ## Como REVERTER
 
-Edite `tailwind.config.js` e restaure o bloco `fontFamily` para:
+Edite o bloco `fontFamily` em `tailwind.config.js`:
 
 ```js
+// Voltar para a Playfair Display (cuidado: o "J" vira 𝒥 de novo):
+fontFamily: {
+  sans:   ['"Playfair Display"', 'serif'],
+  script: ['"Playfair Display"', 'serif'],
+  serif:  ['"Playfair Display"', 'serif'],
+},
+
+// Ou voltar às fontes ORIGINAIS (antes de 17/06/2026, três fontes distintas):
 fontFamily: {
   sans:   ['Montserrat', 'system-ui', 'sans-serif'],
   script: ['"Great Vibes"', 'cursive'],
@@ -18,8 +36,15 @@ fontFamily: {
 },
 ```
 
-As fontes já estão importadas em `src/index.css` (Google Fonts), então
-nada mais precisa mudar — é só salvar e recarregar.
+Todas essas fontes continuam importadas em `src/index.css` (Google Fonts),
+então nada mais precisa mudar — é só salvar e recarregar.
+
+---
+
+## Histórico: unificação em Playfair Display (17/06/2026)
+
+Nessa data as três fontes originais foram unificadas em Playfair Display.
+O quadro abaixo guarda **quais eram as fontes originais** e **onde eram usadas**.
 
 ## Fontes originais e onde eram usadas
 
@@ -29,9 +54,9 @@ nada mais precisa mudar — é só salvar e recarregar.
 | `font-script`   | **Great Vibes**       | Nomes do casal (capa e Save the Date), título "Save the Date", textos em destaque cursivos do fechamento. |
 | `font-serif`    | **Playfair Display**  | Títulos elegantes em itálico: data do Save the Date, **versículo** (página romântica), título "Toque nos ícones para interagir", títulos (`h3`) dos modais, fechamento. |
 
-> Observação: a configuração atual aponta `sans`, `script` e `serif` **todas**
-> para Playfair Display. Por isso basta editar o `tailwind.config.js` para voltar
-> ao estado anterior — os componentes não precisam ser alterados.
+> Observação: `sans`, `script` e `serif` apontam **todas** para a mesma fonte
+> (hoje a Cormorant Garamond). Por isso basta editar o `tailwind.config.js` para
+> trocar de fonte — os componentes não precisam ser alterados.
 
 ---
 

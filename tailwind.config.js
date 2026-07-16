@@ -3,16 +3,14 @@ export default {
   content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
-      // >>> FONTE ÚNICA: tudo usa Playfair Display (a fonte do versículo). <<<
-      // Para REVERTER às fontes originais, basta restaurar o bloco abaixo
-      // (também documentado em FONTES-BACKUP.md):
-      //   sans:   ['Montserrat', 'system-ui', 'sans-serif']   -> textos de apoio
-      //   script: ['"Great Vibes"', 'cursive']                -> nomes / destaques
-      //   serif:  ['"Playfair Display"', 'serif']             -> títulos elegantes
+      // >>> FONTE ÚNICA: tudo usa Cormorant Garamond. <<<
+      // Antes era Playfair Display, trocada porque o "J" itálico dela é um
+      // swash (𝒥) que era lido como "F" — aparecia em "K&J" e em "João".
+      // Para REVERTER (às fontes originais ou à Playfair), veja FONTES-BACKUP.md.
       fontFamily: {
-        sans: ['"Playfair Display"', 'serif'],
-        script: ['"Playfair Display"', 'serif'],
-        serif: ['"Playfair Display"', 'serif'],
+        sans: ['"Cormorant Garamond"', 'serif'],
+        script: ['"Cormorant Garamond"', 'serif'],
+        serif: ['"Cormorant Garamond"', 'serif'],
       },
       colors: {
         // Paleta do casamento: VERDE OLIVA + DOURADO (com cream/branco de apoio).

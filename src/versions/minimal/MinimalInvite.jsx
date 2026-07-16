@@ -33,9 +33,12 @@ export default function MinimalInvite({ onOpenModal, revealed }) {
         {/* Rola quando não couber; `m-auto` no miolo centraliza sem cortar o topo */}
         <div className="hide-scrollbar relative flex h-full flex-col overflow-y-auto px-7 py-9">
           <div className="m-auto flex w-full flex-col items-center text-center">
-          {/* Monograma */}
+          {/* Monograma.
+              Obs.: a Cormorant Garamond é mais leve e tem altura-x menor que a
+              Playfair, então os textos pequenos pedem um grau a mais de peso e
+              tamanho — daí os font-medium/semibold daqui para baixo. */}
           <motion.p
-            className="font-script text-2xl italic tracking-wide text-olive"
+            className="font-script text-3xl font-medium italic tracking-wide text-olive"
             {...enter(0.05)}
           >
             {minimal.monogram}
@@ -43,10 +46,10 @@ export default function MinimalInvite({ onOpenModal, revealed }) {
 
           {/* Versículo */}
           <motion.div className="mt-7 max-w-[19rem]" {...enter(0.15)}>
-            <p className="font-serif text-[13px] italic leading-relaxed text-olive">
+            <p className="font-serif text-[15px] font-medium italic leading-relaxed text-olive">
               {minimal.verse.text}
             </p>
-            <p className="mt-1.5 font-serif text-[12px] italic text-olive/75">
+            <p className="mt-1.5 font-serif text-[13px] italic text-olive/75">
               {minimal.verse.ref}
             </p>
           </motion.div>
@@ -61,7 +64,7 @@ export default function MinimalInvite({ onOpenModal, revealed }) {
 
           {/* Convite */}
           <motion.p
-            className="mt-7 max-w-[18rem] whitespace-pre-line font-serif text-[13px] italic leading-relaxed text-ink/70"
+            className="mt-7 max-w-[18rem] whitespace-pre-line font-serif text-[15px] font-medium italic leading-relaxed text-ink/70"
             {...enter(0.35)}
           >
             {minimal.intro}
@@ -69,21 +72,21 @@ export default function MinimalInvite({ onOpenModal, revealed }) {
 
           {/* Data */}
           <motion.div className="mt-8" {...enter(0.45)}>
-            <p className="font-sans text-[11px] uppercase tracking-[0.3em] text-olive/80">
+            <p className="font-sans text-[12px] font-semibold uppercase tracking-[0.3em] text-olive/80">
               {minimal.when.month}
             </p>
             <div className="mt-2 flex items-center justify-center gap-4">
-              <span className="border-y border-olive/30 py-1 font-sans text-[11px] uppercase tracking-[0.15em] text-ink/70">
+              <span className="border-y border-olive/30 py-1 font-sans text-[12px] font-semibold uppercase tracking-[0.15em] text-ink/70">
                 {minimal.when.weekday}
               </span>
-              <span className="font-serif text-5xl leading-none text-olive-dark">
+              <span className="font-serif text-5xl font-medium leading-none text-olive-dark">
                 {minimal.when.day}
               </span>
-              <span className="border-y border-olive/30 py-1 font-sans text-[11px] uppercase tracking-[0.15em] text-ink/70">
+              <span className="border-y border-olive/30 py-1 font-sans text-[12px] font-semibold uppercase tracking-[0.15em] text-ink/70">
                 {minimal.when.time}
               </span>
             </div>
-            <p className="mt-2 font-sans text-[11px] tracking-[0.3em] text-ink/55">
+            <p className="mt-2 font-sans text-[12px] font-semibold tracking-[0.3em] text-ink/55">
               {minimal.when.year}
             </p>
           </motion.div>
@@ -109,7 +112,7 @@ export default function MinimalInvite({ onOpenModal, revealed }) {
                   >
                     <Icon className="h-5 w-5 text-cream" strokeWidth={1.6} />
                   </span>
-                  <span className="font-serif text-[10px] italic leading-tight text-ink/65">
+                  <span className="font-serif text-[12px] font-medium italic leading-tight text-ink/65">
                     {item.label}
                   </span>
                 </motion.button>
@@ -118,7 +121,7 @@ export default function MinimalInvite({ onOpenModal, revealed }) {
           </motion.div>
 
           <motion.p
-            className="mt-7 font-serif text-[11px] italic text-ink/45"
+            className="mt-7 font-serif text-[12px] font-medium italic text-ink/45"
             {...enter(0.7)}
           >
             {minimal.footer}
