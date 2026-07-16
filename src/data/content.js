@@ -14,8 +14,50 @@
 
 export const couple = {
   names: 'Karine & João Gabriel',
-  date: '25. OUTUBRO. 2026',
+  date: '24. OUTUBRO. 2026',
 }
+
+/**
+ * ----- QUAL VERSÃO DO CONVITE EXIBIR -----
+ *   'minimal' -> versão nova: selo -> uma única tela com todas as infos.
+ *   'classic' -> versão antiga: envelope -> livreto com páginas viradas.
+ * Também dá para alternar sem editar o código, pela URL:
+ *   ?v=classic  ou  ?v=minimal
+ */
+export const version = 'minimal'
+
+/**
+ * ----- Textos da versão 'minimal' (tela única) -----
+ */
+export const minimal = {
+  monogram: 'K&J',
+  seal: {
+    hint: 'Clique no selo\npara abrir',
+  },
+  verse: {
+    text:
+      '“Assim, eles já não são dois, mas sim uma só carne. Portanto, o que Deus uniu, ninguém o separe.”',
+    ref: 'Mateus 19:6',
+  },
+  intro: 'Com a benção de Deus e de seus pais,\nconvidam para a cerimônia e recepção\nde seu casamento',
+  when: {
+    month: 'OUTUBRO',
+    weekday: 'SÁBADO',
+    day: '24',
+    time: 'ÀS 19:00',
+    year: '2026',
+  },
+  footer: 'Clique nos botões acima',
+}
+
+/**
+ * Monta o caminho de um arquivo da pasta /public respeitando onde o site está
+ * hospedado. No GitHub Pages o convite fica em /convite-casamento/, então um
+ * caminho fixo como '/cristo.jpeg' daria 404 — `BASE_URL` resolve isso sozinho
+ * (vale '/' no dev e '/convite-casamento/' no ar).
+ * Use só para arquivos locais; URLs externas (http...) devem ir cruas.
+ */
+const asset = (file) => `${import.meta.env.BASE_URL}${file}`
 
 // ----- Imagens de fundo -----
 // Todas as páginas usam a mesma foto (public/cristo.jpeg).
@@ -26,11 +68,11 @@ export const couple = {
 //   interactive: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1200&q=80'
 //   closing:     'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80'
 export const images = {
-  cover: '/cristo.jpeg',
-  saveTheDate: '/cristo.jpeg',
-  romantic: '/cristo.jpeg',
-  interactive: '/cristo.jpeg',
-  closing: '/cristo.jpeg',
+  cover: asset('cristo.jpeg'),
+  saveTheDate: asset('cristo.jpeg'),
+  romantic: asset('cristo.jpeg'),
+  interactive: asset('cristo.jpeg'),
+  closing: asset('cristo.jpeg'),
 }
 
 // ----- Textos das páginas -----
@@ -44,9 +86,10 @@ export const pagesText = {
     subtitle: 'Reserve esta data no seu coração',
   },
   romantic: {
+    // Mesmo versículo da versão 'minimal', para as duas versões baterem.
     quote:
-      '“E nós conhecemos e cremos no amor que Deus tem por nós. Deus é amor; aquele que permanece no amor permanece em Deus, e Deus, nele.”',
-    ref: '1 João 4:16',
+      '“Assim, eles já não são dois, mas sim uma só carne. Portanto, o que Deus uniu, ninguém o separe.”',
+    ref: 'Mateus 19:6',
   },
   closing: {
     title: 'Esperamos por você!',

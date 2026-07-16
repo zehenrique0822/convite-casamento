@@ -1,10 +1,23 @@
 # 💌 Convite de Casamento Digital — Karine & João Gabriel
 
-Aplicação web **React + Vite** (mobile-first, 100dvh) que simula um convite de
-casamento interativo: abre como um **envelope** e vira como um **livreto**
-(efeito *page flip*), com **modais/bottom sheets** animados.
+Aplicação web **React + Vite** (mobile-first, 100dvh) com **duas versões** do
+convite, que compartilham o mesmo conteúdo e os mesmos modais:
 
-## ✨ Recursos
+| Versão | Como é | Onde fica o código |
+| --- | --- | --- |
+| **`minimal`** (atual) | Selo dourado com o monograma → as metades verdes abrem e revelam **uma única tela** com todas as informações. | `src/versions/minimal/` |
+| **`classic`** (anterior) | Envelope animado → livreto com páginas viradas (*page flip*). | `src/components/` |
+
+### Como alternar entre as versões
+
+- **Padrão do site**: edite `version` em **`src/data/content.js`**
+  (`'minimal'` ou `'classic'`).
+- **Na hora, sem mexer no código**: use o parâmetro na URL —
+  `?v=classic` ou `?v=minimal` (ex.: `https://seusite.com/?v=classic`).
+
+Nada da versão antiga foi apagado: as duas continuam funcionando lado a lado.
+
+## ✨ Recursos (versão `classic`)
 
 - **Envelope animado** (Framer Motion): aba abre no eixo X, cartão desliza e o
   envelope some revelando o convite.
@@ -92,11 +105,16 @@ convite-casamento/
 │   └── heart.svg
 └── src/
     ├── main.jsx
-    ├── App.jsx                 # orquestra envelope + livreto + modal
+    ├── App.jsx                 # escolhe a versão + modal global
     ├── index.css               # fontes Google + utilidades (glass, etc.)
     ├── data/
-    │   └── content.js          # >>> EDITE AQUI textos e imagens <<<
-    └── components/
+    │   └── content.js          # >>> EDITE AQUI textos, data e versão <<<
+    ├── versions/
+    │   └── minimal/            # VERSÃO NOVA (tela única)
+    │       ├── SealScreen.jsx      # selo + metades que abrem
+    │       ├── MinimalInvite.jsx   # o cartão com todas as infos
+    │       └── Eucalyptus.jsx      # folhagem em SVG (sem imagem externa)
+    └── components/             # VERSÃO ANTIGA (envelope + livreto)
         ├── Envelope.jsx        # tela inicial animada
         ├── InvitationBook.jsx  # livreto com page flip
         ├── Modal.jsx           # bottom sheet / modal

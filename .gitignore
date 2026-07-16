@@ -11,3 +11,6 @@ yarn-error.log*
 
 # WSL/Windows artifacts
 *:Zone.Identifier
+
+# Referência de design (screenshot) — não precisa ir para o repositório
+nova versão.jpeg
